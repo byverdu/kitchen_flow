@@ -22,10 +22,23 @@ If the costumer is happy will leave some tips.
 ````javascript
 "costumer","kitchen","dining room","staff","menu"
 ````
- ======
+
+======
 
 #### Possible names for methods
 
 ````javascript
 "arrive", "sit", "offer", "take order", "coking", "serving", "eat"
 ````
+
+=======
+
+#### Using CRC
+
+###### Costumer
+
+|Responsabilities|Collaborations|
+| -------------- | ------------ |
+| Arrives, sit   |  Dining Room |
+| Order food     |  Staff       |
+| Eats           |  Menu        |
