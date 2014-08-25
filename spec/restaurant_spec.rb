@@ -19,6 +19,7 @@ describe Restaurant do
 	end
 
 	it "knows how many costumers have" do
+		allow(client).to receive(:name)
 		restaurant.set_dining_room(client)
 		
 		expect(restaurant.tables.count).to eq 1		
@@ -27,17 +28,32 @@ describe Restaurant do
 	it "knows when is full" do
 		fill_restaurant restaurant
 
+		expect(restaurant.is_full?).to be true
+	end
+
+	it "raise an error if the restaurant is full" do
+		fill_restaurant restaurant
+
 		restaurant.is_full?
 
-		expect(restaurant.tables.count).to eq(restaurant.capacity)
+		expect { restaurant.set_dining_room(client) }.to raise_error(RuntimeError)
 	end
 
-	it "the dining room is organized by table number and costumer" do
-		expect(restaurant.set_dining_room(client)).to eq([:table_number => client])
+	it "stores the costumers by name in a hash" do
+		allow(client).to receive(:name)
+
+		expect(restaurant.set_dining_room(client)).to eq([{client.name => client}])
 	end
 
-	xit "every table gets the number of his array position" do
+	xit "the dining room is organized by table number and costumer" do
+		table_number = [] 
+ 		
+		restaurant.capacity.times{table_number<<'table_number_'}
 
+		table_number.each_with_index do |table,index|
+ 			
+		expect(restaurant.set_dining_room(client)).to eq([table+(index+1).to_s => client])
+
+ 		end
 	end
-
 end

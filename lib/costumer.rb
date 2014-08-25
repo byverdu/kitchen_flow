@@ -6,7 +6,7 @@ class Costumer
 	def initialize(options={})
 		@hungry  = nil
 		@sit     = false
-		@name  ||= options.fetch(:name, name) 
+		@name    = options.fetch(:name, name) 
 	end 
 
 	def time_to_eat! hour
