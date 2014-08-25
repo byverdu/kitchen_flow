@@ -13,6 +13,12 @@ describe Costumer do
 			expect(client.hungry).to be nil
 		end
 
+		it "has his own name rather than a hash number" do
+			albert = Costumer.new(name: 'albert')
+
+			expect(albert.name).to eq('albert')
+		end
+
 		it "knows when is lunch time" do
 			midday = Time.local(2014,8,25,12,0)
 			Timecop.freeze(midday)
@@ -33,7 +39,7 @@ describe Costumer do
 
 		it "knows how to go to the restaurant" do
 			place = double :restaurant
-			expect(place).to receive(:dining_room).and_return(client)
+			expect(place).to receive(:set_dining_room).and_return(client)
 
 			client.going_to_eat place
 

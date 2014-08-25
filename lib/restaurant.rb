@@ -9,10 +9,13 @@ class Restaurant
 		@tables   ||= []
 	end
 
-	def dining_room client
-		{:table_number => client}
+	def set_dining_room client
+	 @tables <<	{:table_number => client}
 	end
 
+	def is_full?
+
+	end
 
 
 	
