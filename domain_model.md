@@ -20,7 +20,7 @@ If the costumer is happy will leave some tips.
 #### Possible names for Classes
 
 ````javascript
-"costumer","kitchen","dining room","staff","menu"
+"costumer","restaurant","kitchen","dining room","staff","menu"
 ````
 
 ======
