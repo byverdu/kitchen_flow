@@ -40,5 +40,48 @@ If the costumer is happy will leave some tips.
 |Responsabilities|Collaborations|
 | -------------- | ------------ |
 | Arrives, sit   |  Dining Room |
+| Order food     | Staff-waiter |
+| Eats           |  Menu        |
+
+
+###### Dining Room 
+
+|Responsabilities|Collaborations|
+| -------------- | ------------ |
+| Hold Costumer  |  Costumer    |
+| Serving        |  Staff-all   |
+|                |  Menu        |
+|                |  Kitchen     |
+
+
+
+###### Kitchen
+
+|Responsabilities|Collaborations|
+| -------------- | ------------ |
+| Coking         |  Dining Room |
+| Sending        |  Staff-all   |
+|                |  Menu        |
+
+
+###### Staff
+
+|Responsabilities|Collaborations|
+| -------------- | ------------ |
+| Arrives, sit   |  All         |
+| Order food     |              |
+| Eats           |              |
+
+<!-- 
+
+###### Menu
+
+|Responsabilities|Collaborations|
+| -------------- | ------------ |
+| Arrives, sit   |  Dining Room |
 | Order food     |  Staff       |
 | Eats           |  Menu        |
+
+
+
+-->
