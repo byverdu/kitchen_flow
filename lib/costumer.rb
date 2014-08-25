@@ -12,8 +12,8 @@ class Costumer
 	end
 
 	def going_to_eat place
-		place.open_door
+		place.dining_room self	
 		@sit = true
 	end
 
-end
+end	
