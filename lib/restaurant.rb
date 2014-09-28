@@ -23,13 +23,19 @@ class Restaurant
 
 		raise 'The Restaurant is full' if is_full?
 		
+		filling_tables costumer
+    
+    @waiter.give_menu costumer
+	end
+
+	
+
+	def filling_tables costumer
 		table_number = @tables.size
 
 		@tables[table_number] = { table_number => costumer,"waiter" => @waiter}
 
 		@tables_full << @tables.pop
 		@tables.pop
-    
-    @waiter.give_menu costumer
 	end
 end
