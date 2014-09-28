@@ -29,6 +29,7 @@ describe Restaurant do
 			expect(restaurant).to respond_to(:waiter)
 			expect(restaurant.waiter).to be_a(Staff)
 		end
+
 	end
 
 	context 'dealing with costumers' do

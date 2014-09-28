@@ -2,23 +2,25 @@ require "./lib/costumer"
 
 class Staff 
 
-	attr_reader :section, :duty
+	attr_reader :section, :duties, :in_duty
 
 	def initialize(section=nil)
 		@section = section
-		@duty = set_duty
+		@duties  = set_duty
+		@in_duty = nil
 	end
 
 	def set_duty
 		if @section === 'waiter'
-			@duty = ['menu','serve','order' ] 
+			@duties = ['menu','serve','order' ] 
 		else
-      @duty = ['cook','serve','order' ]
+      @duties = ['cook','serve','order' ]
     end 
   end
 
   def give_menu costumer
-  	costumer.menu = @duty[0]
+  	costumer.menu = @duties[0]
+  	@in_duty      = @duties[0]
   end
 
 end
