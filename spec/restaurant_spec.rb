@@ -4,13 +4,12 @@ require "restaurant"
 describe Restaurant do
 
 	def fill_restaurant 
-		20.times{restaurant.set_dining_room Costumer.new(name: 'albert')}
+		20.times{restaurant.set_dining_room Costumer.new()}
 	end
 
 	let(:restaurant)   { Restaurant.new }
 	let(:costumer)     { double :costumer }
-	let(:waiter)       { double :staff }
-
+	
 	context 'is initialized' do
 	
 		it "with a capacity" do
@@ -27,25 +26,25 @@ describe Restaurant do
 		end
 
 		it "has a waiter" do
-			expect(restaurant.waiter).to be_a(waiter)
+			expect(restaurant).to respond_to(:waiter)
+			expect(restaurant.waiter).to be_a(Staff)
 		end
 	end
 
 	context 'dealing with costumers' do
 
 		it "can accept costumers" do
-			allow(costumer).to receive(:name)
 			restaurant.set_dining_room(costumer)
 			expect(restaurant.tables.size).to eq(19)
 		end
 		
 		it "is moved inside the restaurant" do
 			table_number = restaurant.tables.size
+			waiter       = restaurant.waiter
 
-			allow(costumer).to receive(:name)
 			restaurant.set_dining_room(costumer)
 
-			expect(restaurant.tables_full).to contain_exactly({table_number=> costumer, wairter=> nil})
+			expect(restaurant.tables_full).to contain_exactly({table_number=> costumer, "waiter"=> waiter})
 			expect(restaurant.tables_full.size).to eq(1) 
 		end
 		
