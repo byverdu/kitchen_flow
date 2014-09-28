@@ -7,10 +7,10 @@ describe Costumer do
 
 	context "arriving to the restaurant" do
 
-		let(:client)  { Costumer.new }
+		let(:costumer)  { Costumer.new }
 
 		it "is initialized without being hungry" do
-			expect(client.hungry).to be nil
+			expect(costumer.hungry).to be nil
 		end
 
 		it "has his own name rather than a hash number" do
@@ -23,28 +23,32 @@ describe Costumer do
 			midday = Time.local(2014,8,25,12,0)
 			Timecop.freeze(midday)
 
-			client.time_to_eat! midday
+			costumer.time_to_eat! midday
 
-			expect(client.hungry).to be true
+			expect(costumer.hungry).to be true
 		end
 
 		it "knows when is dinner time" do
 			dinner = Time.local(2014,8,25,18,0)
 			Timecop.freeze(dinner)
 
-			client.time_to_eat! dinner
+			costumer.time_to_eat! dinner
 
-			expect(client.hungry).to be true
+			expect(costumer.hungry).to be true
 		end
 
 		it "knows how to go to the restaurant" do
 			place = double :restaurant
-			expect(place).to receive(:set_dining_room).and_return(client)
+			expect(place).to receive(:set_dining_room).and_return(costumer)
 
-			client.going_to_eat place
+			costumer.going_to_eat place
 
-			expect(client.sit).to be true
-			expect(client.hungry).to be true
+			expect(costumer.sit).to be true
+			expect(costumer.hungry).to be true
+		end
+
+		it "has the menu from home" do
+			expect(costumer.menu).to be nil
 		end
 
 	end

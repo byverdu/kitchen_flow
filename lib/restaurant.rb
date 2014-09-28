@@ -29,5 +29,7 @@ class Restaurant
 
 		@tables_full << @tables.pop
 		@tables.pop
+    
+    @waiter.give_menu costumer
 	end
 end

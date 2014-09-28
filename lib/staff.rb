@@ -1,3 +1,5 @@
+require "./lib/costumer"
+
 class Staff 
 
 	attr_reader :section, :duty
@@ -14,4 +16,9 @@ class Staff
       @duty = ['cook','serve']
     end 
   end
+
+  def give_menu costumer
+  	costumer.menu = @duty[0]
+  end
+
 end

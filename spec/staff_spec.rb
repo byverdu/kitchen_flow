@@ -7,8 +7,8 @@ let(:waiter) { Staff.new('waiter') }
 let(:chef)   { Staff.new('chef') }
 
 let(:restaurant) { double :restaurant }
-let(:costumer)   { double :costumer   }
-
+#let(:costumer)   { double :costumer, menu: nil  }
+let(:costumer) { Costumer.new }
 	context "when is initialized" do
 
 		it "belongs to a section" do
@@ -33,8 +33,14 @@ let(:costumer)   { double :costumer   }
 
 		it "goes to the table if a costumer seats" do
 			expect(restaurant).to receive(:set_dining_room).and_return(costumer)
+			expect(restaurant).to receive(:waiter).and_return(waiter)
+			expect(costumer).to receive(:menu).and_return('menu')
 
 			restaurant.set_dining_room costumer
+
+			expect(restaurant.waiter.give_menu(costumer)).to eq(costumer.menu)
+
+			#expect(costumer.menu).to eq(waiter.duty[0])
 		end
 	end
 

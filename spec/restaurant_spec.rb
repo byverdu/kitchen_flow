@@ -8,7 +8,7 @@ describe Restaurant do
 	end
 
 	let(:restaurant)   { Restaurant.new }
-	let(:costumer)     { double :costumer }
+	let(:costumer)     { Costumer.new   }
 	
 	context 'is initialized' do
 	
