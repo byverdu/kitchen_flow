@@ -21,6 +21,10 @@ describe Restaurant do
 			expect(restaurant.tables[0]).to eq('Empty')
 		end
 
+		it "with a kitchen" do
+			expect(restaurant.kitchen).to be_a(Staff)
+		end
+
 		it "knows when a table is full" do
 			expect(restaurant.tables_full).to eq([])
 		end
