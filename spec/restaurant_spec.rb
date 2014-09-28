@@ -57,24 +57,4 @@ describe Restaurant do
 			expect { restaurant.set_dining_room(costumer) }.to raise_error(RuntimeError)
 		end
 	end
-
-
-
-	xit "stores the costumers by name in a hash" do
-		allow(costumer).to receive(:name)
-
-		expect(restaurant.set_dining_room(costumer)).to eq([{costumer.name => costumer}])
-	end
-
-	xit "the dining room is organized by table number and costumer" do
-		table_number = [] 
- 		
-		restaurant.capacity.times{table_number<<'table_number_'}
-
-		table_number.each_with_index do |table,index|
- 			
-		expect(restaurant.set_dining_room(costumer)).to eq([table+(index+1).to_s => costumer])
-
- 		end
-	end
 end
