@@ -7,19 +7,8 @@ class Restaurant
 
 	def initialize
 		@capacity    = CAPACITY
-		@tables      = Array.new(CAPACITY/2)
+		@tables      = Array.new(CAPACITY/2,'Empty')
 		@tables_full = []
-		place_tables 
-	end
-
-	def place_tables 
-		start_count = 0
-
-		while start_count < (CAPACITY/2)
-			
-			@tables[start_count] = {start_count => nil}
-			start_count += 1
-		end
 	end
 
 	def is_full?
@@ -27,11 +16,13 @@ class Restaurant
 	end
 
 	def set_dining_room costumer
+		
+		table_number = @tables.size
 
-		@tables[0][0] = costumer 
+		@tables[table_number] = { table_number => costumer }
 
-		@tables_full << @tables.shift
-
+		@tables_full << @tables.pop
+		@tables.pop
 	end
 
 

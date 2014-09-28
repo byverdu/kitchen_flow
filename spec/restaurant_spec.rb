@@ -17,7 +17,8 @@ describe Restaurant do
 		end
 
 		it "with 20 tables" do
-			expect(restaurant.tables.count).to eq(20)
+			expect(restaurant.tables.size).to eq(20)
+			expect(restaurant.tables[0]).to eq('Empty')
 		end
 
 		it "knows when a table is full" do
@@ -30,15 +31,17 @@ describe Restaurant do
 		it "can accept costumers" do
 			allow(costumer).to receive(:name)
 			restaurant.set_dining_room(costumer)
-			expect(restaurant.tables[1][0]).to be nil 
+			expect(restaurant.tables.size).to eq(19)
 		end
 		
 		it "is moved inside the restaurant" do
+			table_number = restaurant.tables.size
+
 			allow(costumer).to receive(:name)
 			restaurant.set_dining_room(costumer)
 
-			expect(restaurant.tables.length).to eq(19)
-			expect(restaurant.tables_full.length).to eq(1)
+			expect(restaurant.tables_full).to contain_exactly({table_number=> costumer})
+			expect(restaurant.tables_full.size).to eq(1) 
 		end
 		
 	end
