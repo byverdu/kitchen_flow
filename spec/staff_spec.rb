@@ -31,8 +31,10 @@ let(:costumer)   { double :costumer   }
 
 	context "waiter dealing with the costumer" do
 
-		xit "goes to the table if a costumer seats" do
+		it "goes to the table if a costumer seats" do
 			expect(restaurant).to receive(:set_dining_room).and_return(costumer)
+
+			restaurant.set_dining_room costumer
 		end
 	end
 

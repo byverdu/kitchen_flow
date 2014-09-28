@@ -1,7 +1,7 @@
 class Restaurant
 
 	attr_accessor  :tables, :tables_full
-	attr_reader    :capacity
+	attr_reader    :capacity, :waiter
 
 	CAPACITY = 40
 
@@ -21,7 +21,7 @@ class Restaurant
 		
 		table_number = @tables.size
 
-		@tables[table_number] = { table_number => costumer }
+		@tables[table_number] = { table_number => costumer, waiter => nil }
 
 		@tables_full << @tables.pop
 		@tables.pop

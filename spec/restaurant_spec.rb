@@ -8,7 +8,8 @@ describe Restaurant do
 	end
 
 	let(:restaurant)   { Restaurant.new }
-	let(:costumer)       { double :costumer }
+	let(:costumer)     { double :costumer }
+	let(:waiter)       { double :staff }
 
 	context 'is initialized' do
 	
@@ -23,6 +24,10 @@ describe Restaurant do
 
 		it "knows when a table is full" do
 			expect(restaurant.tables_full).to eq([])
+		end
+
+		it "has a waiter" do
+			expect(restaurant.waiter).to be_a(waiter)
 		end
 	end
 
@@ -40,7 +45,7 @@ describe Restaurant do
 			allow(costumer).to receive(:name)
 			restaurant.set_dining_room(costumer)
 
-			expect(restaurant.tables_full).to contain_exactly({table_number=> costumer})
+			expect(restaurant.tables_full).to contain_exactly({table_number=> costumer, wairter=> nil})
 			expect(restaurant.tables_full.size).to eq(1) 
 		end
 		
