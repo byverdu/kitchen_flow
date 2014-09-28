@@ -24,8 +24,8 @@ let(:costumer) { Costumer.new }
 		end
 
 		it "has a duty depending the section" do
-			expect(waiter.duty).to eq(['menu','serve'])
-			expect(chef.duty).to   eq(['cook','serve'])
+			expect(waiter.duty).to eq(['menu','serve','order'])
+			expect(chef.duty).to   eq(['cook','serve','order'])
 		end
 	end
 

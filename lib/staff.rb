@@ -11,9 +11,9 @@ class Staff
 
 	def set_duty
 		if @section === 'waiter'
-			@duty = ['menu','serve'] 
+			@duty = ['menu','serve','order' ] 
 		else
-      @duty = ['cook','serve']
+      @duty = ['cook','serve','order' ]
     end 
   end
 
