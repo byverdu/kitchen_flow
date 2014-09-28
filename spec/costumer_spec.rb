@@ -4,10 +4,13 @@ require "costumer"
 
 
 describe Costumer do
+	
+	let(:costumer)   { Costumer.new }
+	let(:restaurant) { double :restaurant }
+	let(:waiter)     { Staff.new('waiter')}
 
 	context "arriving to the restaurant" do
 
-		let(:costumer)  { Costumer.new }
 
 		it "is initialized without being hungry" do
 			expect(costumer.hungry).to be nil
@@ -38,19 +41,27 @@ describe Costumer do
 		end
 
 		it "knows how to go to the restaurant" do
-			place = double :restaurant
-			expect(place).to receive(:set_dining_room).and_return(costumer)
+			expect(restaurant).to receive(:set_dining_room).and_return(costumer)
 
-			costumer.going_to_eat place
+			costumer.going_to_eat restaurant
 
 			expect(costumer.sit).to be true
 			expect(costumer.hungry).to be true
 		end
 
-		it "has the menu from home" do
+		it "has the no menu from home" do
 			expect(costumer.menu).to be nil
 		end
 
+	end
+
+	context 'inside the restaurant' do
+		
+		it "has the menu" do
+			waiter.give_menu costumer
+
+			expect(costumer.menu).to eq("menu")
+		end
 	end
 end
 
