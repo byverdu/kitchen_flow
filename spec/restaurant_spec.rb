@@ -44,21 +44,21 @@ describe Restaurant do
 			expect(restaurant.tables_full.size).to eq(1) 
 		end
 		
+		it "knows when is full" do
+			fill_restaurant 
+
+			expect(restaurant.is_full?).to be true
+		end
+		it "raise an error if the restaurant is full" do
+			fill_restaurant 
+
+			restaurant.is_full?
+
+			expect { restaurant.set_dining_room(costumer) }.to raise_error(RuntimeError)
+		end
 	end
 
-	# it "knows when is full" do
-	# 	fill_restaurant 
 
-	# 	expect(restaurant.is_full?).to be true
-	# end
-
-	xit "raise an error if the restaurant is full" do
-		fill_restaurant 
-
-		restaurant.is_full?
-
-		expect { restaurant.set_dining_room(costumer) }.to raise_error(RuntimeError)
-	end
 
 	xit "stores the costumers by name in a hash" do
 		allow(costumer).to receive(:name)

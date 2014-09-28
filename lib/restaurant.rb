@@ -12,10 +12,12 @@ class Restaurant
 	end
 
 	def is_full?
-		@tables.size === (CAPACITY/2)
+		@tables_full.size === (CAPACITY/2)
 	end
 
 	def set_dining_room costumer
+
+		raise 'The Restaurant is full' if is_full?
 		
 		table_number = @tables.size
 
