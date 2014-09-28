@@ -3,43 +3,50 @@ require "restaurant"
 
 describe Restaurant do
 
-	def fill_restaurant place
-		place.capacity.times{restaurant.set_dining_room Costumer.new}
+	def fill_restaurant 
+		20.times{restaurant.set_dining_room Costumer.new(name: 'albert')}
 	end
 
 	let(:restaurant)   { Restaurant.new }
 	let(:client)       { double :costumer }
 
-	it "is initialized with a capacity" do
-		expect(restaurant.capacity).to eq 40
+	context 'is initialized' do
+	
+		it "with a capacity" do
+			expect(restaurant.capacity).to eq 40
+		end
+
+		it "with 20 tables" do
+			expect(restaurant.tables.count).to eq(20)
+		end
+
+		it "knows when a table is full" do
+			expect(restaurant.tables_full).to eq([])
+		end
 	end
 
-	it "is initialized as a container" do
-		expect(restaurant.tables).to eq []
-	end
+	# it "can accept costumers" do
+	# 	allow(client).to receive(:name)
+	# 	restaurant.set_dining_room(client)
+	# 	restaurant.tables[1] = client
+	# 	expect(restaurant.tables[1]).not_to be nil		
+	# end
 
-	it "knows how many costumers have" do
-		allow(client).to receive(:name)
-		restaurant.set_dining_room(client)
-		
-		expect(restaurant.tables.count).to eq 1		
-	end
+	# it "knows when is full" do
+	# 	fill_restaurant 
 
-	it "knows when is full" do
-		fill_restaurant restaurant
+	# 	expect(restaurant.is_full?).to be true
+	# end
 
-		expect(restaurant.is_full?).to be true
-	end
-
-	it "raise an error if the restaurant is full" do
-		fill_restaurant restaurant
+	xit "raise an error if the restaurant is full" do
+		fill_restaurant 
 
 		restaurant.is_full?
 
 		expect { restaurant.set_dining_room(client) }.to raise_error(RuntimeError)
 	end
 
-	it "stores the costumers by name in a hash" do
+	xit "stores the costumers by name in a hash" do
 		allow(client).to receive(:name)
 
 		expect(restaurant.set_dining_room(client)).to eq([{client.name => client}])

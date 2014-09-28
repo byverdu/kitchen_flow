@@ -3,10 +3,10 @@ class Costumer
 	attr_reader   :hungry, :sit
 	attr_accessor :name
 
-	def initialize(options={})
+	def initialize(name=nil)
 		@hungry  = nil
 		@sit     = false
-		@name    = options.fetch(:name, name) 
+		@name    = name
 	end 
 
 	def time_to_eat! hour
@@ -15,7 +15,8 @@ class Costumer
 
 	def going_to_eat place
 		place.set_dining_room self	
-		@sit = true
+		@sit    = true
+		@hungry = true
 	end
 
 end	

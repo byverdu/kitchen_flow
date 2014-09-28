@@ -14,7 +14,7 @@ describe Costumer do
 		end
 
 		it "has his own name rather than a hash number" do
-			albert = Costumer.new(name: 'albert')
+			albert = Costumer.new('albert')
 
 			expect(albert.name).to eq('albert')
 		end
@@ -44,6 +44,7 @@ describe Costumer do
 			client.going_to_eat place
 
 			expect(client.sit).to be true
+			expect(client.hungry).to be true
 		end
 
 	end
