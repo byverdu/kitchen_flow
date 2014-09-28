@@ -9,38 +9,28 @@ class Restaurant
 		@capacity    = CAPACITY
 		@tables      = Array.new(CAPACITY/2)
 		@tables_full = []
-		#place_tables 
+		place_tables 
 	end
 
-	# def place_tables 
-	# 	start_count = 1
+	def place_tables 
+		start_count = 0
 
-	# 	while start_count <= (CAPACITY/2)
+		while start_count < (CAPACITY/2)
 			
-	# 		tables[start_count] = nil
-	# 		start_count += 1
-	# 	end
-		
-	# 	tables
-	# end
+			@tables[start_count] = {start_count => nil}
+			start_count += 1
+		end
+	end
 
 	def is_full?
 		@tables.size === (CAPACITY/2)
 	end
 
-	def set_dining_room client
-		#raise 'Sorry, no available tables' if is_full?
-			#@tables[2] = client
-			max = @tables.size
-			min = 1
-			while min < max
+	def set_dining_room costumer
 
-			@tables[min] = client if @tables[min]===nil
+		@tables[0][0] = costumer 
 
-
-			min +=1
-
-			end
+		@tables_full << @tables.shift
 
 	end
 

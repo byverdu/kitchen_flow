@@ -8,7 +8,7 @@ describe Restaurant do
 	end
 
 	let(:restaurant)   { Restaurant.new }
-	let(:client)       { double :costumer }
+	let(:costumer)       { double :costumer }
 
 	context 'is initialized' do
 	
@@ -25,12 +25,23 @@ describe Restaurant do
 		end
 	end
 
-	# it "can accept costumers" do
-	# 	allow(client).to receive(:name)
-	# 	restaurant.set_dining_room(client)
-	# 	restaurant.tables[1] = client
-	# 	expect(restaurant.tables[1]).not_to be nil		
-	# end
+	context 'dealing with costumers' do
+
+		it "can accept costumers" do
+			allow(costumer).to receive(:name)
+			restaurant.set_dining_room(costumer)
+			expect(restaurant.tables[1][0]).to be nil 
+		end
+		
+		it "is moved inside the restaurant" do
+			allow(costumer).to receive(:name)
+			restaurant.set_dining_room(costumer)
+
+			expect(restaurant.tables.length).to eq(19)
+			expect(restaurant.tables_full.length).to eq(1)
+		end
+		
+	end
 
 	# it "knows when is full" do
 	# 	fill_restaurant 
@@ -43,13 +54,13 @@ describe Restaurant do
 
 		restaurant.is_full?
 
-		expect { restaurant.set_dining_room(client) }.to raise_error(RuntimeError)
+		expect { restaurant.set_dining_room(costumer) }.to raise_error(RuntimeError)
 	end
 
 	xit "stores the costumers by name in a hash" do
-		allow(client).to receive(:name)
+		allow(costumer).to receive(:name)
 
-		expect(restaurant.set_dining_room(client)).to eq([{client.name => client}])
+		expect(restaurant.set_dining_room(costumer)).to eq([{costumer.name => costumer}])
 	end
 
 	xit "the dining room is organized by table number and costumer" do
@@ -59,7 +70,7 @@ describe Restaurant do
 
 		table_number.each_with_index do |table,index|
  			
-		expect(restaurant.set_dining_room(client)).to eq([table+(index+1).to_s => client])
+		expect(restaurant.set_dining_room(costumer)).to eq([table+(index+1).to_s => costumer])
 
  		end
 	end
