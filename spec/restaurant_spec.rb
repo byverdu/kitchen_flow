@@ -22,7 +22,8 @@ describe Restaurant do
 		end
 
 		it "with a kitchen" do
-			expect(restaurant.kitchen).to be_a(Staff)
+			expect(restaurant.kitchen).to be_a(Array)
+			expect(restaurant.kitchen).to contain_exactly(Staff)
 		end
 
 		it "knows when a table is full" do
