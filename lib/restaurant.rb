@@ -20,7 +20,7 @@ class Restaurant
 		@tables_full.size === (CAPACITY/2)
 	end
 
-	def set_dining_room costumer
+	def sitting_actual costumer
 
 		raise 'The Restaurant is full' if is_full?
 		

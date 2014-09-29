@@ -4,7 +4,7 @@ require "costumer"
 describe Restaurant do
 
 	def fill_restaurant 
-		20.times{restaurant.set_dining_room Costumer.new()}
+		20.times{restaurant.sitting_actual Costumer.new()}
 	end
 
 	let(:restaurant)   { Restaurant.new }
@@ -40,7 +40,7 @@ describe Restaurant do
 	context 'dealing with costumers' do
 
 		it "can accept costumers" do
-			restaurant.set_dining_room(costumer)
+			restaurant.sitting_actual(costumer)
 			expect(restaurant.tables.size).to eq(19)
 		end
 		
@@ -48,7 +48,7 @@ describe Restaurant do
 			table_number = restaurant.tables.size
 			waiter       = restaurant.waiter
 
-			restaurant.set_dining_room(costumer)
+			restaurant.sitting_actual(costumer)
 
 			expect(restaurant.tables_full).to contain_exactly({table_number=> costumer, "waiter"=> waiter})
 			expect(restaurant.tables_full.size).to eq(1) 
@@ -64,7 +64,7 @@ describe Restaurant do
 
 			restaurant.is_full?
 
-			expect { restaurant.set_dining_room(costumer) }.to raise_error(RuntimeError)
+			expect { restaurant.sitting_actual(costumer) }.to raise_error(RuntimeError)
 		end
 	end
 end

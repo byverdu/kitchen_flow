@@ -22,8 +22,8 @@ let(:costumer)   { Costumer.new }
 		end
 
 		it "has a set of duties depending the section" do
-			expect(waiter.duties).to eq(['menu','serve','order'])
-			expect(chef.duties).to   eq(['cook','serve','order'])
+			expect(waiter.duties).to eq(['menu','order','serve'])
+			expect(chef.duties).to   eq(['cook','order','serve'])
 		end
 
 		it "has a specific duty depending the task" do
@@ -42,6 +42,14 @@ let(:costumer)   { Costumer.new }
 			expect(restaurant.waiter.give_menu(costumer)).to eq(costumer.status)
 			expect(waiter.in_duty).to eq('menu')
 		end
+
+		it "receives the order from the costumer" do
+			costumer.ready_to_order waiter
+			
+			expect(waiter.in_duty).to eq(waiter.duties[1])
+		end
+
+
 	end
 
 end

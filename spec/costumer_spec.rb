@@ -7,7 +7,6 @@ describe Costumer do
 	let(:costumer)   { Costumer.new }
 	let(:restaurant) { Restaurant.new  }
 	let(:waiter)     { Staff.new('waiter')}
-	#let(:chef)     { Staff.new('chef')}
 
 	context "arriving to the restaurant" do
 
@@ -54,7 +53,7 @@ describe Costumer do
 
 	context 'inside the restaurant' do
 		
-	  it "has the no menu from home" do
+	  it "has no status" do
 			expect(costumer.status).to be nil
 		end
 		
@@ -67,9 +66,8 @@ describe Costumer do
 		it "orders when is ready" do
 			costumer.ready_to_order waiter
 
-			expect(costumer.status).to eq("order")
-			expect(waiter.in_duty).to  eq(waiter.duties[2])
-			#expect(chef.in_duty).to    eq(waiter.duties[2])
+			expect(costumer.status).to eq(waiter.duties[1])
+			expect(waiter.in_duty).to  eq(waiter.duties[1])
 		end
 	end
 end

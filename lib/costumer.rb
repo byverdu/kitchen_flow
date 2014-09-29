@@ -23,8 +23,8 @@ class Costumer
 	end
 
 	def ready_to_order waiter
-		@status = "order"
-		waiter.in_duty = "order"
+		@status        = waiter.duties[1]
+		waiter.in_duty = waiter.duties[1]
 	end
 
 end	
