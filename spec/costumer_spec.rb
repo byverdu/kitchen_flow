@@ -64,10 +64,10 @@ describe Costumer do
 		end
 
 		it "orders when is ready" do
-			costumer.ready_to_order waiter
+			costumer.ready_to_order restaurant.waiter
 
 			expect(costumer.status).to eq(waiter.duties[1])
-			expect(waiter.in_duty).to  eq(waiter.duties[1])
+			expect(restaurant.waiter.in_duty).to  eq(waiter.duties[1])
 		end
 	end
 end

@@ -25,8 +25,7 @@ class Staff
   end
 
   def sent_order chef
-  	chef.in_duty = @duties[1]
-
-  end
+    chef.in_duty = @duties[1]
+	end
 
 end

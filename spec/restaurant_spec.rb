@@ -22,7 +22,7 @@ describe Restaurant do
 		end
 
 		it "with a kitchen" do
-			expect(restaurant.kitchen).to be_a(Staff)
+			expect(restaurant.chef).to be_a(Staff)
 		end
 
 		it "knows when a table is full" do

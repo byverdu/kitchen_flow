@@ -1,8 +1,8 @@
 describe Staff do
 
-let(:staff)  { Staff.new() }
-let(:waiter) { Staff.new('waiter') }
-let(:chef)   { Staff.new('chef') }
+let(:staff)   { Staff.new() }
+let(:waiter)  { Staff.new('waiter') }
+let(:chef)    { Staff.new('chef') }
 
 let(:restaurant) { double :restaurant }
 let(:costumer)   { Costumer.new }
@@ -44,18 +44,25 @@ let(:costumer)   { Costumer.new }
 		end
 
 		it "receives the order from the costumer" do
+			expect(restaurant).to receive(:waiter).and_return(waiter)
 			costumer.ready_to_order waiter
 			
-			expect(waiter.in_duty).to eq(waiter.duties[1])
+			expect(restaurant.waiter.in_duty).to eq(waiter.duties[1])
 		end
 	end
 
 	context "processing the costumers order" do
 
 		it "the waiter takes it to the kitchen" do
-			waiter.sent_order chef
-			expect(chef.in_duty).to eq('order')
+			expect(restaurant).to receive(:waiter).and_return(waiter)
+			expect(restaurant).to receive(:chef).and_return(chef)
+			
+			restaurant.waiter.sent_order chef
+			
+			expect(restaurant.chef.in_duty).to eq('order')
 		end
+
+
 	end
 
 end

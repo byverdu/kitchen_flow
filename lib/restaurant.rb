@@ -2,7 +2,7 @@ require './lib/staff'
 
 class Restaurant
 
-	attr_accessor  :tables, :tables_full, :waiter, :kitchen
+	attr_accessor  :tables, :tables_full, :waiter, :chef
 	attr_reader    :capacity
 
 	CAPACITY = 40
@@ -13,7 +13,7 @@ class Restaurant
 		@tables_full = []
 
 		@waiter      = Staff.new('waiter')
-		@kitchen     = Staff.new('chef')
+		@chef        = Staff.new('chef')
 	end
 
 	def is_full?
