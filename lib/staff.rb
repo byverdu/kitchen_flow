@@ -2,7 +2,8 @@ require "./lib/costumer"
 
 class Staff 
 
-	attr_reader :section, :duties, :in_duty
+	attr_reader :section, :duties
+	attr_accessor :in_duty
 
 	def initialize(section=nil)
 		@section = section
@@ -19,8 +20,8 @@ class Staff
   end
 
   def give_menu costumer
-  	costumer.menu = @duties[0]
-  	@in_duty      = @duties[0]
+  	costumer.status = @duties[0]
+  	@in_duty        = @duties[0]
   end
 
 end

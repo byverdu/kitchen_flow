@@ -1,5 +1,5 @@
 require "restaurant"
-
+require "costumer"
 
 describe Restaurant do
 

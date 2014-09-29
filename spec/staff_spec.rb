@@ -1,5 +1,3 @@
-require "staff"
-
 describe Staff do
 
 let(:staff)  { Staff.new() }
@@ -7,8 +5,8 @@ let(:waiter) { Staff.new('waiter') }
 let(:chef)   { Staff.new('chef') }
 
 let(:restaurant) { double :restaurant }
-#let(:costumer)   { double :costumer, menu: nil  }
-let(:costumer) { Costumer.new }
+let(:costumer)   { Costumer.new }
+
 	context "when is initialized" do
 
 		it "belongs to a section" do
@@ -41,7 +39,7 @@ let(:costumer) { Costumer.new }
 			
 			restaurant.set_dining_room costumer
 
-			expect(restaurant.waiter.give_menu(costumer)).to eq(costumer.menu)
+			expect(restaurant.waiter.give_menu(costumer)).to eq(costumer.status)
 			expect(waiter.in_duty).to eq('menu')
 		end
 	end

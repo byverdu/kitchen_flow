@@ -2,12 +2,12 @@ require "timecop"
 require "costumer"
 
 
-
 describe Costumer do
 	
 	let(:costumer)   { Costumer.new }
-	let(:restaurant) { double :restaurant }
+	let(:restaurant) { Restaurant.new  }
 	let(:waiter)     { Staff.new('waiter')}
+	#let(:chef)     { Staff.new('chef')}
 
 	context "arriving to the restaurant" do
 
@@ -49,18 +49,27 @@ describe Costumer do
 			expect(costumer.hungry).to be true
 		end
 
-		it "has the no menu from home" do
-			expect(costumer.menu).to be nil
-		end
 
 	end
 
 	context 'inside the restaurant' do
 		
+	  it "has the no menu from home" do
+			expect(costumer.status).to be nil
+		end
+		
 		it "has the menu" do
 			waiter.give_menu costumer
 
-			expect(costumer.menu).to eq("menu")
+			expect(costumer.status).to eq("menu")
+		end
+
+		it "orders when is ready" do
+			costumer.ready_to_order waiter
+
+			expect(costumer.status).to eq("order")
+			expect(waiter.in_duty).to  eq(waiter.duties[2])
+			#expect(chef.in_duty).to    eq(waiter.duties[2])
 		end
 	end
 end
