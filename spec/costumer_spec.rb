@@ -25,7 +25,7 @@ describe Costumer do
 			midday = Time.local(2014,8,25,12,0)
 			Timecop.freeze(midday)
 
-			costumer.time_to_eat! midday
+			costumer.time_to_eat? midday
 
 			expect(costumer.hungry).to be true
 		end
@@ -34,7 +34,7 @@ describe Costumer do
 			dinner = Time.local(2014,8,25,18,0)
 			Timecop.freeze(dinner)
 
-			costumer.time_to_eat! dinner
+			costumer.time_to_eat? dinner
 
 			expect(costumer.hungry).to be true
 		end

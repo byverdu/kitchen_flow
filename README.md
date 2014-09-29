@@ -31,11 +31,7 @@ Lets bake a little bit.
 #### Possible classes
 
 ```ruby
-=begin
-
- The main class is Restaurant, when you create an instance of Restaurant, it contains the following:
-
-=end
+# The main class is Restaurant
 
 > pub = Restaurant.new();
 
@@ -56,14 +52,36 @@ Lets bake a little bit.
 > pub.waiter.in_duty    # 'menu' or 'order' or 'serve' 
 
 
+# Costumer class
 
+alby = Costumer.new('Albert') # name is optional
+
+
+# Costumer properties
+
+alby.hungry # nil
+alby.sit    # false
+alby.name   # 'Albert'
+alby.status # nil
 
 
 ```
 
+#### Possible methods
 
+```ruby
 
+# Ask the costumer if is time to eat.
 
+# Returns true if hour is 12:00 to 13:00 or 18:00 to 19:00
+
+alby.time_to_eat? Time,now.hour
+
+# If is time to eat can go to the pub
+
+alby.going_to_eat pub
+
+```
 
 
 

@@ -12,7 +12,7 @@ class Costumer
 		@status = nil
 	end 
 
-	def time_to_eat! hour
+	def time_to_eat? hour
 		@hungry = true if Time.now.hour === 12 || Time.now.hour === 18
 	end
 
