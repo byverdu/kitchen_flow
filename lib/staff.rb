@@ -28,4 +28,8 @@ class Staff
     chef.in_duty = @duties[1]
 	end
 
+	def start_cooking
+    self.in_duty = @duties[0]
+	end
+
 end

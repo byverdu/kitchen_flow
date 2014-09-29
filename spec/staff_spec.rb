@@ -4,7 +4,7 @@ let(:staff)   { Staff.new() }
 let(:waiter)  { Staff.new('waiter') }
 let(:chef)    { Staff.new('chef') }
 
-let(:restaurant) { double :restaurant }
+let(:restaurant) { Restaurant.new }
 let(:costumer)   { Costumer.new }
 
 	context "when is initialized" do
@@ -62,7 +62,10 @@ let(:costumer)   { Costumer.new }
 			expect(restaurant.chef.in_duty).to eq('order')
 		end
 
+		it "the chef starts cooking after receives the order" do
+			restaurant.chef.start_cooking
 
+			expect(restaurant.chef.in_duty).to eq('cook')
+		end
 	end
-
 end
