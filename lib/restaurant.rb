@@ -13,7 +13,7 @@ class Restaurant
 		@tables_full = []
 
 		@waiter      = Staff.new('waiter')
-		@kitchen     = [Staff.new('chef')] 
+		@kitchen     = Staff.new('chef')
 	end
 
 	def is_full?
