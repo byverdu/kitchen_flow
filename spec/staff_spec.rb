@@ -48,8 +48,14 @@ let(:costumer)   { Costumer.new }
 			
 			expect(waiter.in_duty).to eq(waiter.duties[1])
 		end
+	end
 
+	context "processing the costumers order" do
 
+		it "the waiter takes it to the kitchen" do
+			waiter.sent_order chef
+			expect(chef.in_duty).to eq('order')
+		end
 	end
 
 end
