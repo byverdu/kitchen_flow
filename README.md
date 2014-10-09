@@ -36,7 +36,7 @@ Lets bake a little bit.
 > pub = Restaurant.new();
 
 > pub.tables       # Array with 20 tables
-> pub,tables_full  # Array with tables and costumers
+> pub.tables_full  # Array with tables and costumers
 > pub.waiter       # Staff.new('waiter')
 > pub.kitchen      # [Staff.new('chef')]
 
@@ -75,7 +75,7 @@ alby.status # nil
 
 # Returns true if hour is 12:00 to 13:00 or 18:00 to 19:00
 
-alby.time_to_eat? Time,now.hour
+alby.time_to_eat? Time.now.hour
 
 # If is time to eat can go to the pub
 
