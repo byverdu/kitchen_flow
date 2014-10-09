@@ -37,4 +37,9 @@ class Staff
 		Proc.new{ 1800.times do |secs| puts secs end }.call
 	end
 
+	def serving_food costumer
+		self.in_duty    = @duties[2]
+		costumer.status = @duties[2]
+	end
+
 end

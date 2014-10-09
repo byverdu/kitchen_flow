@@ -72,5 +72,14 @@ let(:costumer)   { Costumer.new }
 			expect(restaurant.chef.cooking).to eq(1800)
 			expect(restaurant.chef.in_duty).to eq('serve')
 		end
+
+		it "After the chef finishes the waiter takes the plate to the costumer" do
+			restaurant.waiter.serving_food costumer
+			expect(restaurant.waiter.in_duty).to eq('serve')
+			expect(costumer.status).to eq('serve')
+		end
 	end
 end
+
+
+
