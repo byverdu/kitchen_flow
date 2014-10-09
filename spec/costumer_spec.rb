@@ -39,6 +39,13 @@ describe Costumer do
 			expect(costumer.hungry).to be true
 		end
 
+		it "can not go to the restaurant if is not lunch or dinner time" do
+			not_time_to_eat = Time.local(2014,8,25,21,0)
+			Timecop.freeze(not_time_to_eat)
+
+			expect{ costumer.time_to_eat? not_time_to_eat }.to raise_error(RuntimeError,'Still hungry, Still foolish')
+		end
+
 		it "knows how to go to the restaurant" do
 			expect(restaurant).to receive(:set_dining_room).and_return(costumer)
 
