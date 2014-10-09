@@ -43,7 +43,7 @@ describe Costumer do
 			not_time_to_eat = Time.local(2014,8,25,21,0)
 			Timecop.freeze(not_time_to_eat)
 
-			expect{ costumer.time_to_eat? not_time_to_eat }.to raise_error(RuntimeError,'Still hungry, Still foolish')
+			expect{ costumer.time_to_eat? not_time_to_eat }.to raise_error(RuntimeError,'Stay hungry, Stay foolish')
 		end
 
 		it "knows how to go to the restaurant" do

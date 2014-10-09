@@ -15,7 +15,7 @@ class Costumer
 	def time_to_eat? hour
 		@hungry = true if Time.now.hour === 12 || Time.now.hour === 18
 
-		raise 'Still hungry, Still foolish' unless @hungry
+		raise 'Stay hungry, Stay foolish' unless @hungry
 	end
 
 	def going_to_eat restaurant

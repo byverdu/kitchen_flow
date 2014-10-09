@@ -67,5 +67,10 @@ let(:costumer)   { Costumer.new }
 
 			expect(restaurant.chef.in_duty).to eq('cook')
 		end
+
+		it "after 30 minutes the chef is ready to serve the food" do
+			expect(restaurant.chef.cooking).to eq(1800)
+			expect(restaurant.chef.in_duty).to eq('serve')
+		end
 	end
 end
