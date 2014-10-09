@@ -76,6 +76,12 @@ describe Costumer do
 			expect(costumer.status).to eq(waiter.duties[1])
 			expect(restaurant.waiter.in_duty).to  eq(waiter.duties[1])
 		end
+
+		it "after receiving the plates starts to eat" do
+			
+			expect(costumer.enjoying_meal).to eq(1800)
+			expect(costumer.status).to eq('eating')
+		end
 	end
 end
 

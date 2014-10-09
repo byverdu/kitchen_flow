@@ -29,4 +29,9 @@ class Costumer
 		waiter.in_duty = waiter.duties[1]
 	end
 
+	def enjoying_meal
+		@status = 'eating'
+		1800.times do |secs| puts secs end 
+	end
+
 end	

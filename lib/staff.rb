@@ -34,7 +34,7 @@ class Staff
 
 	def cooking
 		self.in_duty = @duties[2]
-		Proc.new{ 1800.times do |secs| puts secs end }.call
+		1800.times do |secs| puts secs end 
 	end
 
 	def serving_food costumer
