@@ -32,6 +32,7 @@ Lets bake a little bit.
 
 ```ruby
 # The main class is Restaurant
+# Initialized with 20 tables, 1 waiter, 1 chef.
 
 > pub = Restaurant.new();
 
@@ -75,11 +76,28 @@ alby.status # nil
 
 # Returns true if hour is 12:00 to 13:00 or 18:00 to 19:00
 
+
 alby.time_to_eat? Time.now.hour
+alby.hungry = true
 
-# If is time to eat can go to the pub if not raises an error
+# If is time to eat can go to the pub
+# Otherwise raise error 'Stay hungry, Stay foolish'
 
-alby.going_to_eat pub
+alby.going_to_eat pub 
+alby.hungry = true
+alby.sit    = true
+alby.status = nil
+> 'yes, lets go to eat'
+
+=begin
+
+Effects of calling alby.going_to_eat pub 
+
+pub.sitting_actual costumer
+
+pub.tables.count = 1
+
+=end
 
 
 

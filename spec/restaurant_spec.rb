@@ -16,6 +16,12 @@ describe Restaurant do
 			expect(restaurant.capacity).to eq 40
 		end
 
+		it "has a name" do
+
+			restaurant = Restaurant.new('GBK')
+			expect(restaurant.name).to eq('GBK')
+		end
+
 		it "with 20 tables" do
 			expect(restaurant.tables.size).to eq(20)
 			expect(restaurant.tables[0]).to eq('Empty')

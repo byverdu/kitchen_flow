@@ -2,16 +2,16 @@ require './lib/staff'
 
 class Restaurant
 
-	attr_accessor  :tables, :tables_full, :waiter, :chef
+	attr_accessor  :tables, :tables_full, :waiter, :chef, :name
 	attr_reader    :capacity
 
 	CAPACITY = 40
 
-	def initialize
+	def initialize(name=nil)
 		@capacity    = CAPACITY
 		@tables      = Array.new(CAPACITY/2,'Empty')
 		@tables_full = []
-
+		@name        = name
 		@waiter      = Staff.new('waiter')
 		@chef        = Staff.new('chef')
 	end
