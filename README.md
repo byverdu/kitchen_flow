@@ -15,7 +15,7 @@ Lets bake a little bit.
 ## How to run the tests
 
 ```ruby
-# Clone/download/fork the repo
+# Clone/download/fork the repo https://github.com/byverdu/kitchen_flow.git
 
 > cd path/to/folder
 
@@ -25,7 +25,7 @@ Lets bake a little bit.
 ## How to use it.
 
 ```ruby
-# Clone/download/fork the repo
+# Clone/download/fork the repo https://github.com/byverdu/kitchen_flow.git
 
 > cd path/to/folder
 
