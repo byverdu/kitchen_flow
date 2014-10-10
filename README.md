@@ -103,8 +103,8 @@ alby.status = 'menu'
 
 ```ruby
 > alby.ready_to_order pub.waiter
-> alby.status = order
->	pub.waiter  = order
+> alby.status         = 'order'
+> pub.waiter.in_duty  = 'order'
 
 > pub.waiter.sent_order pub.chef
 > pub.chef.in_duty = 'order'
@@ -114,7 +114,7 @@ alby.status = 'menu'
 > 1800 # Seconds before the dish is ready
 
 > pub.waiter.serving_food alby
-> alby.status = 'serve'
+> alby.status        = 'serve'
 > pub.waiter.in_duty = 'serve'
 
 > alby.enjoying_meal
