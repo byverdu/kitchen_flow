@@ -21,7 +21,7 @@ class Costumer
 	end
 
 	def going_to_eat restaurant
-		restaurant.set_dining_room self	
+		restaurant.sitting_actual self	
 		@sit    = true
 		@hungry = true
 	end
@@ -42,7 +42,10 @@ class Costumer
 
 	def time_to_pay
 		set_mood
-
+		
+		@hungry = false
+		@sit    = false
+		@status = 'leaving'
 		case @mood
 		when 'horrible'
 			 "run run run"
@@ -53,6 +56,7 @@ class Costumer
 		when 'marvelous'
 			'oh man, best deal ever'
 		end
+
 	end
 
 end	

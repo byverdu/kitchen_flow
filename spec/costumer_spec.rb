@@ -54,12 +54,11 @@ describe Costumer do
 		end
 
 		it "knows how to go to the restaurant" do
-			expect(restaurant).to receive(:set_dining_room).and_return(costumer)
+			expect(restaurant).to receive(:sitting_actual)
 
 			costumer.going_to_eat restaurant
 
 			expect(costumer.sit).to be true
-			expect(costumer.hungry).to be true
 		end
 
 
@@ -95,9 +94,20 @@ describe Costumer do
 			expect(costumer.set_mood).to match(/horrible|acceptable|marvelous/)
 		end
 
-		it "leaves the place without paying if the mood is horrible" do
-			
+		it "different ends depending the mood" do
+			dinner = Time.local(2014,8,25,18,0)
+			Timecop.freeze(dinner)
+			expect(restaurant).to receive(:sitting_actual).and_return(costumer)
+
+
+			costumer.time_to_eat? dinner
+			costumer.going_to_eat restaurant
+
 			expect(costumer.time_to_pay).to match(/run run run|give me back every penny|oh man, best deal ever/)
+
+			expect(costumer.hungry).to be false
+			expect(costumer.sit).to    be false
+			expect(costumer.status).to eq('leaving')
 		end
 	end
 end
