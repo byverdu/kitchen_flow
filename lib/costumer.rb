@@ -2,8 +2,8 @@ require "./lib/staff"
 
 class Costumer
 
-	attr_reader   :hungry, :sit, :mood
-	attr_accessor :name, :status
+	attr_reader   :hungry, :sit
+	attr_accessor :name, :status, :mood
 
 	def initialize(name=nil)
 		@hungry = nil
@@ -39,4 +39,29 @@ class Costumer
 		['horrible','acceptable','marvelous'].sample
 	end
 
+	def time_to_pay
+
+		case @mood
+		when 'horrible'
+			 "run run run"
+
+		when 'acceptable'
+			 "give me back every penny"
+
+		when 'marvelous'
+			'oh man, best deal ever'
+		end
+	end
+
 end	
+
+
+
+
+
+
+
+
+
+
+

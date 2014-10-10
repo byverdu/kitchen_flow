@@ -85,11 +85,28 @@ describe Costumer do
 
 		it "the satisfaction is always random" do
 
-			mood = ['horrible','acceptable','marvelous']
-
 			expect(costumer.mood).to match(/horrible|acceptable|marvelous/)
-	
 		end
+
+		it "leaves the place without paying if the mood is horrible" do
+			
+			costumer.mood = 'horrible'
+			expect(costumer.time_to_pay).to eq('run run run')
+		end
+
+		it "just pays the bill if the mood is acceptable" do
+			
+			costumer.mood = 'acceptable'
+			expect(costumer.time_to_pay).to eq('give me back every penny')
+		end
+
+		it "leaves 20 pounds note for tips if the mood is marvelous" do
+			
+			costumer.mood = 'marvelous'
+			expect(costumer.time_to_pay).to eq('oh man, best deal ever')
+		end
+
+
 	end
 end
 
