@@ -28,6 +28,7 @@ describe Costumer do
 			costumer.time_to_eat? midday
 
 			expect(costumer.hungry).to be true
+			expect(costumer.time_to_eat? midday).to eq('yes, lets go to eat')
 		end
 
 		it "knows when is dinner time" do
@@ -37,6 +38,7 @@ describe Costumer do
 			costumer.time_to_eat? dinner
 
 			expect(costumer.hungry).to be true
+			expect(costumer.time_to_eat? dinner).to eq('yes, lets go to eat')
 		end
 
 		it "can not go to the restaurant if is not lunch or dinner time" do
@@ -44,6 +46,7 @@ describe Costumer do
 			Timecop.freeze(not_time_to_eat)
 
 			expect{ costumer.time_to_eat? not_time_to_eat }.to raise_error(RuntimeError,'Stay hungry, Stay foolish')
+	
 		end
 
 		it "knows how to go to the restaurant" do
