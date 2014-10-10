@@ -12,6 +12,16 @@ Lets bake a little bit.
 1. Ruby
 2. RSpec
 
+## How to run the tests
+
+```ruby
+# Clone/download/fork the repo
+
+> cd path/to/folder
+
+> rspec -fd
+```
+
 ## How to use it.
 
 ```ruby
