@@ -15,7 +15,6 @@ Lets bake a little bit.
 ## How to use it.
 
 ```ruby
-
 # Clone/download/fork the repo
 
 > cd path/to/folder
@@ -25,7 +24,6 @@ Lets bake a little bit.
 > require './lib/loader'
 
 # all classes ready to use
-
 ```
 
 #### Possible classes
@@ -40,6 +38,7 @@ Lets bake a little bit.
 > pub.tables_full  # Array with tables and costumers
 > pub.waiter       # Staff.new('waiter')
 > pub.kitchen      # [Staff.new('chef')]
+> pub.is_full?
 
 # Staff class has the following properties
 
@@ -55,7 +54,7 @@ Lets bake a little bit.
 
 # Costumer class
 
-alby = Costumer.new('Albert') # name is optional
+> alby = Costumer.new('Albert') # name is optional
 
 
 # Costumer properties
@@ -68,25 +67,24 @@ alby.status # nil
 
 ```
 
-#### Possible methods
+#### Possible methods before going to the restaurant
 
 ```ruby
-
 # Ask the costumer if is time to eat.
 
 # Returns true if hour is 12:00 to 13:00 or 18:00 to 19:00
 
 
-alby.time_to_eat? Time.now.hour
-alby.hungry = true
+> alby.time_to_eat? Time.now.hour
+> alby.hungry = true
 
 # If is time to eat can go to the pub
 # Otherwise raise error 'Stay hungry, Stay foolish'
 
-alby.going_to_eat pub 
-alby.hungry = true
-alby.sit    = true
-alby.status = nil
+> alby.going_to_eat pub 
+> alby.hungry = true
+> alby.sit    = true
+> alby.status = nil
 > 'yes, lets go to eat'
 
 =begin
@@ -94,18 +92,53 @@ alby.status = nil
 Effects of calling alby.going_to_eat pub 
 
 pub.sitting_actual costumer
-
 pub.tables.count = 1
+pub.waiter.give_menu costumer
+alby.status = 'menu'
 
 =end
-
-
-
 ```
 
+#### Possible methods inside the restaurant
 
+```ruby
+> alby.ready_to_order pub.waiter
+> alby.status = order
+>	pub.waiter  = order
 
+> pub.waiter.sent_order pub.chef
+> pub.chef.in_duty = 'order'
 
+> pub.chef.start_cooking
+> pub.chef.in_duty = 'cook'
+> 1800 # Seconds before the dish is ready
+
+> pub.waiter.serving_food alby
+> alby.status = 'serve'
+> pub.waiter.in_duty = 'serve'
+
+> alby.enjoying_meal
+> alby.status = 'serve'
+> 1800 # Seconds before finishes the dish
+```
+
+#### Time to pay
+
+```ruby
+# costumer.time_to_pay returns 3 possible random values
+
+> alby.time_to_eat
+> alby.mood = 'acceptable'
+> 'give me back every penny'
+
+> alby.time_to_eat
+> alby.mood = 'marvelous'
+> 'oh man, best deal ever'
+
+> alby.time_to_eat
+> alby.mood = 'horrible'
+> 'run run run'
+```
 
 
 
