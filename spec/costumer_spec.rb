@@ -82,6 +82,14 @@ describe Costumer do
 			expect(costumer.enjoying_meal).to eq(1800)
 			expect(costumer.status).to eq('eating')
 		end
+
+		it "the satisfaction is always random" do
+
+			mood = ['horrible','acceptable','marvelous']
+
+			expect(costumer.mood).to match(/horrible|acceptable|marvelous/)
+	
+		end
 	end
 end
 

@@ -77,9 +77,11 @@ alby.status # nil
 
 alby.time_to_eat? Time.now.hour
 
-# If is time to eat can go to the pub
+# If is time to eat can go to the pub if not raises an error
 
 alby.going_to_eat pub
+
+
 
 ```
 
