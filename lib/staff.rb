@@ -13,9 +13,9 @@ class Staff
 
 	def set_duty
 		if @section === 'waiter'
-			@duties = ['menu','order','serve' ] 
+			 @duties  = ['menu','order','serve' ] 
 		else
-      @duties = ['cook','order','serve' ]
+       @duties  = ['cook','order','serve' ]
     end 
   end
 
@@ -30,15 +30,12 @@ class Staff
 
 	def start_cooking
     self.in_duty = @duties[0]
-	end
-
-	def cooking
-		self.in_duty = @duties[2]
 		1800.times do |secs| secs end 
 	end
 
 	def serving_food costumer
-		self.in_duty    = @duties[2]
+
+		self.in_duty    = @duties[2] 
 		costumer.status = @duties[2]
 	end
 

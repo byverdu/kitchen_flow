@@ -62,19 +62,15 @@ let(:costumer)   { Costumer.new }
 			expect(restaurant.chef.in_duty).to eq('order')
 		end
 
-		it "the chef starts cooking after receives the order" do
-			restaurant.chef.start_cooking
+		it "the chef starts cooking after receives the order and takes 30 minutes" do
+			expect(restaurant.chef.start_cooking).to eq(1800)
 
 			expect(restaurant.chef.in_duty).to eq('cook')
 		end
 
-		it "after 30 minutes the chef is ready to serve the food" do
-			expect(restaurant.chef.cooking).to eq(1800)
-			expect(restaurant.chef.in_duty).to eq('serve')
-		end
-
 		it "After the chef finishes the waiter takes the plate to the costumer" do
 			restaurant.waiter.serving_food costumer
+
 			expect(restaurant.waiter.in_duty).to eq('serve')
 			expect(costumer.status).to eq('serve')
 		end
