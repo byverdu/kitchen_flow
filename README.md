@@ -128,7 +128,7 @@ alby.status = 'menu'
 > pub.waiter.in_duty = 'serve'
 
 > alby.enjoying_meal
-> alby.status = 'serve'
+> alby.status = 'eating'
 > 1800 # Seconds before finishes the dish
 ```
 
