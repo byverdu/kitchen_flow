@@ -10,7 +10,7 @@ class Costumer
 		@sit    = false
 		@name   = name
 		@status = nil
-		@mood   = set_mood
+		@mood   = 'lets see'
 	end 
 
 	def time_to_eat? hour
@@ -37,10 +37,11 @@ class Costumer
 	end
 
 	def set_mood
-		['horrible','acceptable','marvelous'].sample
+		@mood = ['horrible','acceptable','marvelous'].sample
 	end
 
 	def time_to_pay
+		set_mood
 
 		case @mood
 		when 'horrible'
