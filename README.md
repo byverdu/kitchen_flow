@@ -137,15 +137,15 @@ alby.status = 'menu'
 ```ruby
 # costumer.time_to_pay returns 3 possible random values
 
-> alby.time_to_eat
+> alby.time_to_pay
 > alby.mood = 'acceptable'
 > 'give me back every penny'
 
-> alby.time_to_eat
+> alby.time_to_pay
 > alby.mood = 'marvelous'
 > 'oh man, best deal ever'
 
-> alby.time_to_eat
+> alby.time_to_pay
 > alby.mood = 'horrible'
 > 'run run run'
 ```
