@@ -1,5 +1,4 @@
 ## Kitchen Workflow explained in a TDD way.
-==========================================
 
 Due to my background related with the hospitality I believe that I can explain the work flow in a restaurant.
 
